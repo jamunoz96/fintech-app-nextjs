@@ -5,6 +5,7 @@ import { Header } from "@/components/layout/header";
 import { Container } from "@/components/ui/container";
 import { Heading } from "@/components/ui/heading";
 import { getAllProducts } from "@/lib/data";
+import { Suspense } from "react";
 
 export default function Home() {
   const allProducts = getAllProducts();
@@ -31,8 +32,10 @@ export default function Home() {
               <Heading as="h2" className="mb-6 font-bold tracking-tight">
                 Nuestros Productos
               </Heading>
-              <CategoryFilter categories={categories} />
-              <ProductGrid products={allProducts} />
+              <Suspense fallback={null}>
+                <CategoryFilter categories={categories} />
+                <ProductGrid products={allProducts} />
+              </Suspense>
             </div>
           </section>
         </Container>
