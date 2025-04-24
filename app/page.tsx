@@ -1,4 +1,5 @@
 import { CategoryFilter } from "@/components/home/category-filter";
+import { ProductGrid } from "@/components/home/product-grid";
 import { Header } from "@/components/layout/header";
 import { Container } from "@/components/ui/container";
 import { Heading } from "@/components/ui/heading";
@@ -30,6 +31,7 @@ export default function Home() {
                 Nuestros Productos
               </Heading>
               <CategoryFilter categories={categories} />
+              <ProductGrid products={allProducts} />
             </div>
           </section>
         </Container>
