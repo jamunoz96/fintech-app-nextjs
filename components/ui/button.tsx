@@ -19,7 +19,6 @@ const StyledButton = styled.button<{ variant: string; size: string }>`
   font-weight: 500;
   transition: all 0.2s ease;
 
-  /* Size variants */
   ${(props) =>
     props.size === "sm" &&
     `
@@ -47,7 +46,6 @@ const StyledButton = styled.button<{ variant: string; size: string }>`
     font-size: 1rem;
   `}
   
-  /* Style variants */
   ${(props) =>
     props.variant === "primary" &&
     `
