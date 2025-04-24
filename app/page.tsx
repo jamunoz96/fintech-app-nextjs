@@ -19,7 +19,7 @@ export default function Home() {
             <Heading as="h1" className="mb-2">
               Soluciones financieras para tu futuro
             </Heading>
-            <p className="max-w-[700px] text-muted-foreground md:text-xl">
+            <p className="max-w-[700px] text-gray-600 md:text-xl">
               Descubre nuestros productos financieros diseñados para impulsar tu
               crecimiento económico con seguridad y transparencia.
             </p>

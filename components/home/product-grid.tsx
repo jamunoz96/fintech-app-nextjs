@@ -6,10 +6,12 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { Product } from "@/lib/types";
 import styled from "styled-components";
-import { ArrowRight, Percent, Shield, TrendingUp } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import { JSX, useEffect, useState } from "react";
 import { getAllProducts, getProductsByCategory } from "@/lib/data";
+import { getProductIcon } from "../ui/product-icon";
+import { Heading } from "../ui/heading";
 
 interface ProductGridProps {
   products: Product[];
@@ -67,15 +69,6 @@ export function ProductGrid({ products: initialProducts }: ProductGridProps) {
     }
   }, [categoryParam]);
 
-  const getProductIcon = (type: string) => {
-    const iconsMap: Record<string, JSX.Element> = {
-      Cuenta: <Shield className="h-6 w-6" />,
-      Inversión: <TrendingUp className="h-6 w-6" />,
-    };
-
-    return iconsMap[type] || <Percent className="h-6 w-6" />;
-  };
-
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {filteredProducts.map((product) => (
@@ -89,7 +82,9 @@ export function ProductGrid({ products: initialProducts }: ProductGridProps) {
               {product.category}
             </Badge>
 
-            <h3 className="text-lg font-semibold mt-2">{product.name}</h3>
+            <Heading as="h3" className="mt-2">
+              {product.name}
+            </Heading>
             <p className="text-sm text-gray-500 mt-1">{product.type}</p>
 
             {product.interestRate !== undefined && (
