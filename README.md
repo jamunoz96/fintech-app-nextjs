@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aplicación de Catálogo de Productos Financieros
 
-## Getting Started
+Esta aplicación es una landing page para una fintech que muestra un catálogo de productos financieros con detalles clave, filtros y un diseño moderno y confiable.
 
-First, run the development server:
+## Características
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Página principal con grid de productos financieros
+- Filtrado por categoría
+- Página de detalle para cada producto
+- Diseño responsive
+- Diseño profesional y confiable
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tecnologías utilizadas
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Next.js con App Router
+- TypeScript
+- TailwindCSS para layout base
+- Styled Components para componentes reutilizables
+- Lucide React para iconos
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Instalación
+1. Instala las dependencias:
+   \`\`\`bash
+   npm install
+   \`\`\`
 
-## Learn More
+2. Ejecuta el servidor de desarrollo:
+   \`\`\`bash
+   npm run dev
+   \`\`\`
 
-To learn more about Next.js, take a look at the following resources:
+3. Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver la aplicación.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Estructura del proyecto
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+\`\`\`
+app/                  # Rutas de Next.js App Router
+  page.tsx            # Página principal
+  product/[id]/       # Página de detalle de producto
+components/           # Componentes reutilizables
+  home/               # Componentes específicos de la página principal
+  layout/             # Componentes de layout
+  product/            # Componentes específicos de la página de producto
+  ui/                 # Componentes UI reutilizables
+lib/                  # Utilidades, tipos y datos
+  data.ts             # Datos mock de productos
+  types.ts            # Definiciones de tipos
+\`\`\`
 
-## Deploy on Vercel
+## Decisiones técnicas
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### 1. ¿Qué criterios seguiste para diseñar la UI de productos financieros?
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+-  Utilicé una paleta de colores sobria que
+- Presenté los datos financieros de forma clara y jerarquizada, destacando las tasas de interés y niveles de riesgo.
+- Mantuve un sistema de diseño coherente en toda la aplicación.
+- Implementé barras de riesgo y gráficos para representar visualmente conceptos financieros complejos.
+
+#### 2. ¿Cómo decidiste cuándo usar Tailwind y cuándo Styled Components?
+
+La decisión se basó en el contexto de reutilización de cada componente:
+
+- Tailwind para el layout general, espaciado, y estilos que siguen patrones comunes como estructura base y elementos que no requieren lógica de estilo compleja.
+
+- Styled Components implementado para componentes UI reutilizables que:
+  - Necesitan variantes basadas en props (como Button, Badge)
+  - Requieren lógica de estilo más compleja (como RiskIndicator)
+
+#### 3. ¿Qué harías para escalar este proyecto en una aplicación real de banca digital?
+
+- **Autenticación**: Integraría un sistema robusto de autenticación y autorización (OAuth, JWT).
+- **API**: Desarrollaría una API RESTful o GraphQL para comunicación con el backend.
+- **Estado global**: Implementaría Redux o Context API para gestión de estado.
+- **Internacionalización**: Añadiría soporte para múltiples idiomas con next-i18next.
+- **Testing**: Implementaría tests unitarios, de integración y e2e (Jest, React Testing Library, Cypress).
+- **CI/CD**: Configuraría pipelines de integración y despliegue continuo.
+- **Monitoreo**: Integraría herramientas de análisis y monitoreo.
+- **Seguridad**: Implementaría medidas de seguridad adicionales (OWASP).
+
+#### 4. ¿Qué herramientas usarías para mejorar el rendimiento y monitoreo en producción?
+
+- **Análisis de rendimiento**:
+
+  - Lighthouse para auditorías de rendimiento
+  - Web Vitals para métricas de experiencia de usuario
+  - Next.js Analytics para métricas específicas de Next.js
+
+- **Monitoreo**:
+
+  - Sentry para seguimiento de errores en tiempo real
+  - New Relic o Datadog para monitoreo de aplicaciones
+  - LogRocket para reproducción de sesiones de usuario
+
+- **Optimización**:
+
+  - Implementación de estrategias de caching (SWR, React Query)
+  - Code splitting y lazy loading
+  - Optimización de imágenes con next/image
+  - Prefetching inteligente de rutas

@@ -1,5 +1,6 @@
 import { CategoryFilter } from "@/components/home/category-filter";
 import { ProductGrid } from "@/components/home/product-grid";
+import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { Container } from "@/components/ui/container";
 import { Heading } from "@/components/ui/heading";
@@ -36,6 +37,7 @@ export default function Home() {
           </section>
         </Container>
       </main>
+      <Footer />
     </>
   );
 }
